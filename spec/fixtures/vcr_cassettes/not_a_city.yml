@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 25 Apr 2021 03:20:51 GMT
+      - Sun, 25 Apr 2021 14:36:52 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -35,7 +35,7 @@ http_interactions:
       Geocodetransactioncount:
       - '1'
       Last-Modified:
-      - Sun, 25 Apr 2021 03:20:51 GMT
+      - Sun, 25 Apr 2021 14:36:52 GMT
       Pragma:
       - no-cache
       Reversegeocodetransactioncount:
@@ -43,7 +43,7 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Set-Cookie:
-      - JSESSIONID=BE350E43F72820BEB15551AEF196FDCA; Path=/; HttpOnly; Secure
+      - JSESSIONID=5F4779D1E4EFC3CB2D744529C5CC79CD; Path=/; HttpOnly; Secure
       Status:
       - success
       Transactionweight:
@@ -54,11 +54,11 @@ http_interactions:
       encoding: UTF-8
       string: '{"info":{"statuscode":0,"copyright":{"text":"\u00A9 2021 MapQuest,
         Inc.","imageUrl":"http://api.mqcdn.com/res/mqlogo.gif","imageAltText":"\u00A9
-        2021 MapQuest, Inc."},"messages":[]},"options":{"maxResults":-1,"thumbMaps":true,"ignoreLatLngInput":false},"results":[{"providedLocation":{"location":"NOTAREALPLACE"},"locations":[{"street":"","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A1XAX","geocodeQuality":"COUNTRY","dragPoint":false,"sideOfStreet":"N","linkId":"282934758","unknownInput":"","type":"s","latLng":{"lat":39.390897,"lng":-99.066067},"displayLatLng":{"lat":39.390897,"lng":-99.066067},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=LOCATION_API_KEY&type=map&size=225,160&locations=39.390897,-99.066067|marker-sm-50318A-1&scalebar=true&zoom=2&rand=2036856258"}]}]}'
-  recorded_at: Sun, 25 Apr 2021 03:20:51 GMT
+        2021 MapQuest, Inc."},"messages":[]},"options":{"maxResults":-1,"thumbMaps":true,"ignoreLatLngInput":false},"results":[{"providedLocation":{"location":"NOTAREALPLACE"},"locations":[{"street":"","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A1XAX","geocodeQuality":"COUNTRY","dragPoint":false,"sideOfStreet":"N","linkId":"282934758","unknownInput":"","type":"s","latLng":{"lat":39.390897,"lng":-99.066067},"displayLatLng":{"lat":39.390897,"lng":-99.066067},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=LOCATION_API_KEY&type=map&size=225,160&locations=39.390897,-99.066067|marker-sm-50318A-1&scalebar=true&zoom=2&rand=1917470955"}]}]}'
+  recorded_at: Sun, 25 Apr 2021 14:36:52 GMT
 - request:
     method: get
-    uri: https://mapquestapi.com/geocoding/v1/address?key=LOCATION_API_KEY&location=alsonotarealplace
+    uri: https://mapquestapi.com/geocoding/v1/address?key=LOCATION_API_KEY&location=fakecity
     body:
       encoding: US-ASCII
       string: ''
@@ -75,11 +75,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 25 Apr 2021 03:20:52 GMT
+      - Sun, 25 Apr 2021 14:36:53 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '1016'
+      - '1763'
       Access-Control-Allow-Methods:
       - OPTIONS,GET,POST
       Access-Control-Allow-Origin:
@@ -91,7 +91,7 @@ http_interactions:
       Geocodetransactioncount:
       - '1'
       Last-Modified:
-      - Sun, 25 Apr 2021 03:20:52 GMT
+      - Sun, 25 Apr 2021 14:36:53 GMT
       Pragma:
       - no-cache
       Reversegeocodetransactioncount:
@@ -99,7 +99,7 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Set-Cookie:
-      - JSESSIONID=483047E8167294DBBDEF08F959FDEDE2; Path=/; HttpOnly; Secure
+      - JSESSIONID=E34C41CDCEE24E6DD4BEEBE90B461FE4; Path=/; HttpOnly; Secure
       Status:
       - success
       Transactionweight:
@@ -110,6 +110,8 @@ http_interactions:
       encoding: UTF-8
       string: '{"info":{"statuscode":0,"copyright":{"text":"\u00A9 2021 MapQuest,
         Inc.","imageUrl":"http://api.mqcdn.com/res/mqlogo.gif","imageAltText":"\u00A9
-        2021 MapQuest, Inc."},"messages":[]},"options":{"maxResults":-1,"thumbMaps":true,"ignoreLatLngInput":false},"results":[{"providedLocation":{"location":"alsonotarealplace"},"locations":[{"street":"","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A1XAX","geocodeQuality":"COUNTRY","dragPoint":false,"sideOfStreet":"N","linkId":"282934758","unknownInput":"","type":"s","latLng":{"lat":39.390897,"lng":-99.066067},"displayLatLng":{"lat":39.390897,"lng":-99.066067},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=LOCATION_API_KEY&type=map&size=225,160&locations=39.390897,-99.066067|marker-sm-50318A-1&scalebar=true&zoom=2&rand=80461713"}]}]}'
-  recorded_at: Sun, 25 Apr 2021 03:20:52 GMT
+        2021 MapQuest, Inc."},"messages":[]},"options":{"maxResults":-1,"thumbMaps":true,"ignoreLatLngInput":false},"results":[{"providedLocation":{"location":"fakecity"},"locations":[{"street":"Lake
+        Vihar 2nd","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Bengaluru","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"Karnataka","adminArea3Type":"State","adminArea1":"IN","adminArea1Type":"Country","postalCode":"560036","geocodeQualityCode":"B3CCA","geocodeQuality":"STREET","dragPoint":false,"sideOfStreet":"N","linkId":"IN/STR/p0/236414","unknownInput":"","type":"s","latLng":{"lat":13.02011,"lng":77.70237},"displayLatLng":{"lat":13.02011,"lng":77.70237},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=LOCATION_API_KEY&type=map&size=225,160&locations=13.02011,77.70237|marker-sm-50318A-1&scalebar=true&zoom=15&rand=31342633"},{"street":"5th
+        Cross Road","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Bengaluru","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"Karnataka","adminArea3Type":"State","adminArea1":"IN","adminArea1Type":"Country","postalCode":"560036","geocodeQualityCode":"B3CCA","geocodeQuality":"STREET","dragPoint":false,"sideOfStreet":"N","linkId":"IN/STR/p0/310392","unknownInput":"","type":"s","latLng":{"lat":13.01994,"lng":77.70371},"displayLatLng":{"lat":13.01994,"lng":77.70371},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=LOCATION_API_KEY&type=map&size=225,160&locations=13.01994,77.70371|marker-sm-50318A-2&scalebar=true&zoom=15&rand=883901103"}]}]}'
+  recorded_at: Sun, 25 Apr 2021 14:36:53 GMT
 recorded_with: VCR 6.0.0

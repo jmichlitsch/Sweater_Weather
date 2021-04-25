@@ -49,8 +49,8 @@ RSpec.describe LocationService do
         data = LocationService.call(not_a_city)
         expect(data[:results][0][:locations][0][:latLng][:lat]).to eq(lat)
         expect(data[:results][0][:locations][0][:latLng][:lng]).to eq(lng)
-        also_not_a_city = 'alsonotarealplace'
-        data = LocationService.call(also_not_a_city)
+        fakecity = 'fakecity'
+        data = LocationService.call(fakecity)
         expect(data[:results][0][:locations][0][:latLng][:lat]).to eq(lat)
         expect(data[:results][0][:locations][0][:latLng][:lng]).to eq(lng)
       end
