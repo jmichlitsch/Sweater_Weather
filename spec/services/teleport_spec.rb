@@ -10,8 +10,8 @@ RSpec.describe TeleportService do
     result_name = data[0][:job]
     check_hash_structure(result_name, :title, String)
     check_hash_structure(result_name, :id, String)
-    check_hash_structure(result, :percentile_25, Integer)
-    check_hash_structure(result, :percentile_50, Integer)
-    check_hash_structure(result, :percentile_75, Integer)
+    check_hash_structure(result, :percentile_25, Float)
+    check_hash_structure(result, :percentile_50, Float)
+    check_hash_structure(result, :percentile_75, Float)
   end
 end
