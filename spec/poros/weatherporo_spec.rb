@@ -53,8 +53,8 @@ RSpec.describe WeatherPoro do
       sunset: 1615070808,
       temp: {
         day: 17.38,
-        min: 4.28,
-        max: 21.49,
+        min_temp: 4.28,
+        max_temp: 21.49,
         night: 9.63,
         eve: 15.87,
         morn: 4.28
@@ -70,8 +70,8 @@ RSpec.describe WeatherPoro do
       dew_point: 10.99,
       wind_speed: 7.31,
       wind_deg: 268,
-      min: 4.28,
-      max: 21.49,
+      min_temp: 4.28,
+      max_temp: 21.49,
       weather: [
         {
           id: 804,
@@ -91,8 +91,8 @@ RSpec.describe WeatherPoro do
     expect(snapshot).to have_attributes(
       sunrise: local_time(data[:sunrise], tz_offset),
       sunset: local_time(data[:sunset], tz_offset),
-      min_temp: data[:min],
-      max_temp: data[:max],
+      min_temp: data[:min_temp],
+      max_temp: data[:max_temp],
       conditions: data[:weather][0][:description],
       icon: data[:weather][0][:icon]
     )
