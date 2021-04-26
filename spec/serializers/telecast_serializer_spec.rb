@@ -5,8 +5,6 @@ describe TelecastSerializer, type: :class do
     data = TeleportService.call("chicago")[:salaries]
 
     serialized = TelecastSerializer.new(TeleportFacade.get_salary("chicago"))
-    binding.pry
-    binding.pry
     expect(test[:title]).to be_a(String)
     expect(test[:title]).to be_a(Float)
     expect(test[:title]).to be_a(Float)

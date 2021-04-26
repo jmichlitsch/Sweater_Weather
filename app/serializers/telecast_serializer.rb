@@ -3,4 +3,6 @@ class TelecastSerializer
   set_id :id
 
   attributes :title, :min, :max, :id
+
+  
 end
