@@ -1,7 +1,8 @@
-class BackgroundFacade
-  def self.background(location)
-    data = BackgroundService.call(location)
-    source_info = BackgroundService.source_info
-    BackgroundPoro.new(data[:results][0], location, source_info)
+class TeleportFacade
+  def self.salaries(destination)
+    data = TeleportService.call(destination)
+    data_anlayst = TeleportPoro.new(data[:salaries][15])
+    data_scientist = TeleportPoro.new(data[:salaries][16])
+
   end
 end

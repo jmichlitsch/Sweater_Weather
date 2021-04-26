@@ -3,8 +3,7 @@ class TeleportService
 
     def call(destination)
       response = conn.get("/api/urban_areas/slug%3A#{destination}/salaries/")
-      be = parse_data(response)
-      binding.pry
+      parse_data(response)
     end
 
     private
