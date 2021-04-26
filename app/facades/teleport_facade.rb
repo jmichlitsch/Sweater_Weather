@@ -2,13 +2,13 @@ class TeleportFacade
   def self.get_salary(destination)
     data = TeleportService.call(destination)
 
-    a = data[:salaries][15]
-    b = data[:salaries][16]
-    c = data[:salaries][32]
-    d = data[:salaries][41]
-    e = data[:salaries][45]
-    f  = data[:salaries][46]
-    g  = data[:salaries][50]
-    array = [a, b, c, d, e, f, g]
+    data_a = TelecastPoro.new(data[:salaries][15])
+    data_sc = TelecastPoro.new(data[:salaries][16])
+    mobile = TelecastPoro.new(data[:salaries][32])
+    qa_engineer = TelecastPoro.new(data[:salaries][41])
+    sofware = TelecastPoro.new(data[:salaries][45])
+    system  = TelecastPoro.new(data[:salaries][46])
+    web_dev  = TelecastPoro.new(data[:salaries][50])
+    array = [data_a, data_sc, mobile, qa_engineer, sofware, system, web_dev]
   end
 end
