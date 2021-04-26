@@ -4,8 +4,7 @@ RSpec.describe 'background request' do
   it 'retrieves a background image for a location' do
       headers = {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json'}
       get '/api/v1/salaries?destination=chicago', headers: headers
-      expect(response.status).to eq(204)
-      expect(response).to be_a(Hash)
-      check_hash_structure(data, :data, Hash)
+      expect(response.status).to eq(200)
+      expect(response.body).to be_a(String)
   end
 end

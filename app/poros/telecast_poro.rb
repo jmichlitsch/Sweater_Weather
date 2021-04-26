@@ -2,7 +2,8 @@ class TelecastPoro
 
   attr_reader :title,
               :min,
-              :max
+              :max,
+              :id
   def initialize(data)
     @title = data[:job][:title]
     @min = data[:salary_percentiles][:percentile_25].round(2)
