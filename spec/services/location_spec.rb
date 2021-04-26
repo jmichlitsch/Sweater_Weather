@@ -49,7 +49,11 @@ RSpec.describe LocationService do
         data = LocationService.call(not_a_city)
         expect(data[:results][0][:locations][0][:latLng][:lat]).to eq(lat)
         expect(data[:results][0][:locations][0][:latLng][:lng]).to eq(lng)
-        fakecity = 'fakecity'
+      end
+      VCR.use_cassette('fakecity') do
+        fakecity = 'fakehfldhscity'
+        lat = 39.390897
+        lng = -99.066067
         data = LocationService.call(fakecity)
         expect(data[:results][0][:locations][0][:latLng][:lat]).to eq(lat)
         expect(data[:results][0][:locations][0][:latLng][:lng]).to eq(lng)
