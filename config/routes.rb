@@ -5,6 +5,8 @@ Rails.application.routes.draw do
      get 'forecast', to: 'weather#show'
 
      get 'background', to: 'background#show'
+
+     get 'salaries', to: 'salarie#show'
    end
  end
 end
