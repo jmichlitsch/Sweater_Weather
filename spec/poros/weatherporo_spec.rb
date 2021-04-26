@@ -132,4 +132,49 @@ RSpec.describe WeatherPoro do
       icon: data[:weather][0][:icon]
     )
   end
+  describe 'instance methods' do
+    it '#local_time' do
+      dt = 1615029583
+      offset = -18000
+
+      snapshot = WeatherPoro.new({ dt: 0, weather: [{}] }, 0, nil)
+
+      expect(snapshot.local_time(dt, offset)).to match(/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} -\d{4}$/)
+    end
+
+    describe '#set_datetime' do
+      it 'can set datetime' do
+        dt = 1615029583
+        offset = -18000
+
+        snapshot = WeatherPoro.new({ dt: 0, weather: [{}] }, 0, nil)
+
+        expect(snapshot.set_datetime(dt, offset, :datetime)).to match(/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} -\d{4}$/)
+        expect(snapshot.date).to be_nil
+        expect(snapshot.time).to be_nil
+      end
+
+      it 'can set date' do
+        dt = 1615029583
+        offset = -18000
+
+        snapshot = WeatherPoro.new({ dt: 0, weather: [{}] }, 0, nil)
+
+        expect(snapshot.set_datetime(dt, offset, :date)).to match(/^\d{4}-\d{2}-\d{2}$/)
+        expect(snapshot.datetime).to be_nil
+        expect(snapshot.time).to be_nil
+      end
+
+      it 'can set time' do
+        dt = 1615029583
+        offset = -18000
+
+        snapshot = WeatherPoro.new({ dt: 0, weather: [{}] }, 0, nil)
+
+        expect(snapshot.set_datetime(dt, offset, :time)).to match(/^\d{2}:\d{2}:\d{2}$/)
+        expect(snapshot.datetime).to be_nil
+        expect(snapshot.date).to be_nil
+      end
+    end
+  end
 end
