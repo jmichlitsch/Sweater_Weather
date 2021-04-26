@@ -14,7 +14,7 @@ class WeatherPoro
               :conditions,
               :icon
 
-  def initialize(data)
+  def initialize(data, timezone_offset, datetime)
     set_datetime(data[:dt], timezone_offset, datetime)
      @sunrise = local_time(data[:sunrise], timezone_offset) if data[:sunrise]
      @sunset = local_time(data[:sunset], timezone_offset) if data[:sunset]

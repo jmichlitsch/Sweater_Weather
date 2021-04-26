@@ -1,5 +1,9 @@
 require 'rails_helper'
 
+def local_time(time, offset)
+  Time.at(time).getlocal(offset).to_s
+end
+
 RSpec.describe WeatherPoro do
   it 'can be initialized with current weather data' do
     data = {
@@ -25,12 +29,13 @@ RSpec.describe WeatherPoro do
           }
       ]
     }
-    snapshot = WeatherPoro.new(data)
+    tz_offset = -18000
+    snapshot = WeatherPoro.new(data, tz_offset, :datetime)
     expect(snapshot).to be_a(WeatherPoro)
     expect(snapshot).to have_attributes(
-      dt: data[:dt],
-      sunrise: data[:sunrise],
-      sunset: data[:sunset],
+      datetime: local_time(data[:dt], tz_offset),
+      sunrise: local_time(data[:sunrise], tz_offset),
+      sunset: local_time(data[:sunset], tz_offset),
       temperature: data[:temp],
       feels_like: data[:feels_like],
       humidity: data[:humidity],
@@ -43,7 +48,7 @@ RSpec.describe WeatherPoro do
 
   it 'can be initialized with daily weather data' do
     data = {
-      dt: 1615050000,
+      dt: 1615046400,
       sunrise: 1615029583,
       sunset: 1615070808,
       temp: {
@@ -65,6 +70,8 @@ RSpec.describe WeatherPoro do
       dew_point: 10.99,
       wind_speed: 7.31,
       wind_deg: 268,
+      min: 4.28,
+      max: 21.49,
       weather: [
         {
           id: 804,
@@ -78,14 +85,14 @@ RSpec.describe WeatherPoro do
        uvi: 2.29
      }
 
-    snapshot = WeatherPoro.new(data)
-
+    tz_offset = -18000
+    snapshot = WeatherPoro.new(data, tz_offset, :datetime)
     expect(snapshot).to be_a(WeatherPoro)
     expect(snapshot).to have_attributes(
-      dt: data[:dt],
-      sunrise: data[:sunrise],
-      sunset: data[:sunset],
-      temperature: data[:temp],
+      sunrise: local_time(data[:sunrise], tz_offset),
+      sunset: local_time(data[:sunset], tz_offset),
+      min_temp: data[:min],
+      max_temp: data[:max],
       conditions: data[:weather][0][:description],
       icon: data[:weather][0][:icon]
     )
@@ -114,11 +121,12 @@ RSpec.describe WeatherPoro do
         ],
       pop: 0
     }
-    snapshot = WeatherPoro.new(data)
+    tz_offset = -18000
+    snapshot = WeatherPoro.new(data, tz_offset, :time)
 
     expect(snapshot).to be_a(WeatherPoro)
     expect(snapshot).to have_attributes(
-      dt: data[:dt],
+      time: local_time(data[:dt], tz_offset).split[1],
       temperature: data[:temp],
       conditions: data[:weather][0][:description],
       icon: data[:weather][0][:icon]
