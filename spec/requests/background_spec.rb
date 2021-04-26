@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'rails_helper' 
 
 RSpec.describe 'background request' do
   it 'retrieves a background image for a location' do
