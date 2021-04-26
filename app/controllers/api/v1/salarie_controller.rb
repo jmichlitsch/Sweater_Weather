@@ -1,10 +1,11 @@
 class Api::V1::SalarieController < ApplicationController
 
   def show
-    location = "denver"
-    @conn ||= Faraday.new(url: 'https://api.teleport.org')
-    response = @conn.get("/urban_areas/slug%3A#{location}/salaries/")
-    be = JSON.parse(response.body, symbolize_names: true)
-    binding.pry
+    if params[:destination].present?
+      destination = TeleportService.call(params[:destination])
+      binding.pry
+    else
+      render_invalid_parameters
+    end
   end
 end
