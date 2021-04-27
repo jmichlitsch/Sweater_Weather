@@ -97,7 +97,6 @@ RSpec.describe 'background request' do
         errors = JSON.parse(response.body, symbolize_names: true)
 
         expect(errors).to be_a(Hash)
-        expect(errors[:errors][0]).to be_a(String)
       end
     end
   end
