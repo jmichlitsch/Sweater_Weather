@@ -42,7 +42,7 @@ group :development, :test do
   gem 'vcr'
   gem 'factory_bot_rails'
   gem 'faker'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development do
