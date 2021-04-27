@@ -35,20 +35,22 @@ RSpec.describe 'road trip' do
   end
 
   it 'can handle impossible road trips' do
-    headers = {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json'}
-    user = create(:user)
-    trip_params = {
-      origin: 'Denver, CO',
-      destination: 'Berlin, DEU',
-      api_key: user.api_key
-    }
+    VCR.use_cassette('denver_to_berlin') do 
+      headers = {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json'}
+      user = create(:user)
+      trip_params = {
+        origin: 'Denver, CO',
+        destination: 'Berlin, DEU',
+        api_key: user.api_key
+      }
 
-    post '/api/v1/road_trip', headers: headers, params: JSON.generate(trip_params)
+      post '/api/v1/road_trip', headers: headers, params: JSON.generate(trip_params)
 
-    expect(response.status).to eq(200)
-    data = JSON.parse(response.body, symbolize_names: true)
-    expect(data[:data][:attributes][:travel_time]).to eq('impossible')
-    expect(data[:data][:attributes][:weather_at_eta]).to be_empty
+      expect(response.status).to eq(200)
+      data = JSON.parse(response.body, symbolize_names: true)
+      expect(data[:data][:attributes][:travel_time]).to eq('impossible')
+      expect(data[:data][:attributes][:weather_at_eta]).to be_empty
+    end
   end
 
   it 'returns an error if the origin is missing' do
@@ -116,7 +118,7 @@ RSpec.describe 'road trip' do
 
     post '/api/v1/road_trip', headers: headers, params: JSON.generate(trip_params)
 
-    expect(response.status).to eq(400)
+    expect(response.status).to eq(401)
     errors = JSON.parse(response.body, symbolize_names: true)
     expect(errors).to be_a(Hash)
     expect(errors.keys).to match_array(%i[errors])
@@ -135,7 +137,7 @@ RSpec.describe 'road trip' do
 
     post "/api/v1/road_trip?origin=#{trip_params[:origin]}&destination=#{trip_params[:destination]}&api_key=#{trip_params[:api_key]}", headers: headers
 
-    expect(response.status).to eq(400)
+    expect(response.status).to eq(401)
     errors = JSON.parse(response.body, symbolize_names: true)
     expect(errors).to be_a(Hash)
     expect(errors.keys).to match_array(%i[errors])
@@ -144,7 +146,7 @@ RSpec.describe 'road trip' do
   end
 
   it 'returns an error if an external API call is unsuccessful' do
-    stub(:get, "").to_return(status: 503)
+    stub_request(:get, "http://www.mapquestapi.com/directions/v2/route?from=Denver,CO&key=#{ENV['LOCATION_API_KEY']}&to=Seattle,WA").to_return(status: 503)
     headers = {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json'}
     user = create(:user)
     trip_params = {
@@ -155,7 +157,7 @@ RSpec.describe 'road trip' do
 
     post '/api/v1/road_trip', headers: headers, params: JSON.generate(trip_params)
 
-    expect(response.status).to eq(400)
+    expect(response.status).to eq(503)
     errors = JSON.parse(response.body, symbolize_names: true)
     expect(errors).to be_a(Hash)
     expect(errors.keys).to match_array(%i[errors])
