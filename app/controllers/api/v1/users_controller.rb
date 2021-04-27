@@ -1,6 +1,6 @@
 class Api::V1::UsersController < ApplicationController
   before_action :reject_query_parameters
-  
+
   def create
     user = User.new(user_params)
     if user.save
@@ -13,6 +13,6 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.permit(:email, :password, :password_confirmation)
   end
 end
