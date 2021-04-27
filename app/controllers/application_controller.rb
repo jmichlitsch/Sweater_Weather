@@ -15,4 +15,14 @@ class ApplicationController < ActionController::API
   def render_unavailable
     render json: ErrorSerializer.serialize('external API unavailable'), status: :service_unavailable
   end
+
+  def render_invalid_headers
+   render json: ErrorSerializer.serialize('invalid content type'), status: :bad_request
+ end
+
+ def validate_headers
+   content_type_json = request.content_type == 'application/json'
+   accept_json = request.accept == 'application/json'
+   render_invalid_headers unless content_type_json && accept_json
+ end
 end

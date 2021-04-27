@@ -87,4 +87,18 @@ RSpec.describe 'background request' do
     check_hash_structure(errors, :errors, Array)
     expect(errors[:errors][0]).to be_a(String)
   end
+
+  describe 'returns an error if the headers are missing' do
+    it 'content type' do
+      VCR.use_cassette('denver_background') do
+        get '/api/v1/background?location=denver,co', headers: nil
+
+        expect(response.status).to eq(200)
+        errors = JSON.parse(response.body, symbolize_names: true)
+
+        expect(errors).to be_a(Hash)
+        expect(errors[:errors][0]).to be_a(String)
+      end
+    end
+  end
 end
