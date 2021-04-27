@@ -7,4 +7,6 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true
 
   has_secure_password
+  has_secure_token :api_key
+  before_save { email.try(:downcase!) }
 end
