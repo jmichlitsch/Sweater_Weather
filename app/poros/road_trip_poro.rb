@@ -4,7 +4,7 @@ class RoadTripPoro
               :travel_time,
               :weather_at_eta
 
-  def initialize(params, travel_time, forecast)
+  def initialize(params, travel_time = nil, forecast = nil)
     @start_city = params[:origin]
     @end_city = params[:destination]
     @travel_time = format_time(travel_time)
