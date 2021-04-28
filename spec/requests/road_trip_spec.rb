@@ -10,9 +10,8 @@ RSpec.describe 'road trip' do
         destination: 'Seattle,WA',
         api_key: user.api_key
       }
-
       post '/api/v1/road_trip', headers: headers, params: JSON.generate(trip_params)
-
+      binding.pry
       expect(response.status).to eq(200)
       data = JSON.parse(response.body, symbolize_names: true)
       expect(data).to be_a(Hash)

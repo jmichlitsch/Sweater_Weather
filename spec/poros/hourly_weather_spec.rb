@@ -36,7 +36,3 @@ RSpec.describe HourlyWeatherPoro do
     )
   end
 end
-
-def local_time(time, offset)
-  Time.at(time).getlocal(offset).to_s
-end

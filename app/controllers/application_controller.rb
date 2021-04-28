@@ -17,20 +17,6 @@ class ApplicationController < ActionController::API
     render json: ErrorSerializer.serialize('external API unavailable'), status: :service_unavailable
   end
 
-  def render_invalid_headers
-   render json: ErrorSerializer.serialize('invalid content type'), status: :bad_request
- end
-
- def validate_headers
-   content_type_json = request.content_type == 'application/json'
-   accept_json = request.accept == 'application/json'
-   render_invalid_headers unless content_type_json && accept_json
- end
-
- def render_missing_parameter(error)
-    render json: ErrorSerializer.serialize(error.message), status: :bad_request
-  end
-
   def reject_query_parameters
     return if request.query_parameters.blank?
     render_invalid_parameters('user information must not be sent as query parameters')

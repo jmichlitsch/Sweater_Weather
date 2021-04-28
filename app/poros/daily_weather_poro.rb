@@ -8,8 +8,4 @@ class DailyWeatherPoro < WeatherPoro
     @conditions = data[:weather][0][:description]
     @icon = data[:weather][0][:icon]
   end
-
-  def local_time(time, timezone_offset)
-    Time.at(time).getlocal(timezone_offset).to_s
-  end
 end
