@@ -98,7 +98,6 @@ RSpec.describe 'sessions post request' do
 
     post "/api/v1/sessions?email=#{login_params[:email]}&password=#{login_params[:password]}", headers: headers, params: JSON.generate(login_params)
 
-    expect(User.count).to eq(0)
 
     expect(response.status).to eq(400)
     errors = JSON.parse(response.body, symbolize_names: true)
