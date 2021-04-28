@@ -35,7 +35,7 @@ RSpec.describe 'road trip' do
   end
 
   it 'can handle impossible road trips' do
-    VCR.use_cassette('denver_to_berlin') do 
+    VCR.use_cassette('denver_to_berlin') do
       headers = {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json'}
       user = create(:user)
       trip_params = {
@@ -99,7 +99,7 @@ RSpec.describe 'road trip' do
 
     post '/api/v1/road_trip', headers: headers, params: JSON.generate(trip_params)
 
-    expect(response.status).to eq(400)
+    expect(response.status).to eq(401)
     errors = JSON.parse(response.body, symbolize_names: true)
     expect(errors).to be_a(Hash)
     expect(errors.keys).to match_array(%i[errors])
@@ -137,7 +137,7 @@ RSpec.describe 'road trip' do
 
     post "/api/v1/road_trip?origin=#{trip_params[:origin]}&destination=#{trip_params[:destination]}&api_key=#{trip_params[:api_key]}", headers: headers
 
-    expect(response.status).to eq(401)
+    expect(response.status).to eq(400)
     errors = JSON.parse(response.body, symbolize_names: true)
     expect(errors).to be_a(Hash)
     expect(errors.keys).to match_array(%i[errors])
