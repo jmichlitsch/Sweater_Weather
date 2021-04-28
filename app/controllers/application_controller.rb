@@ -36,7 +36,7 @@ class ApplicationController < ActionController::API
     render_invalid_parameters('user information must not be sent as query parameters')
   end
 
-  def render_invalid_credentials
-    render json: ErrorSerializer.serialize('Invalid email or password'), status: :unauthorized
-  end
+  def render_invalid_credentials(error)
+   render json: ErrorSerializer.serialize(error), status: :unauthorized
+ end
 end

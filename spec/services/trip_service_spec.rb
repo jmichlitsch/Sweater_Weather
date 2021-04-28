@@ -34,7 +34,7 @@ RSpec.describe TripService do
   end
 
   it 'returns a message if the trip is impossible' do
-    VCR.use_cassette('denver_to_berlin') do
+    VCR.use_cassette('denver_to_berlin_trip') do
       trip_params = {
         origin: 'Denver,CO',
         destination: 'Berlin, DEU'
