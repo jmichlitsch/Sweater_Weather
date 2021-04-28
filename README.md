@@ -1,17 +1,4 @@
 # Sweater Weather
-<p align="left">
-  <a href ="https://ruby-doc.org/">
-    <img src="https://img.shields.io/badge/RUBY-2.5.3-957DAD?style=for-the-badge">
-  </a>
-  &nbsp;
-  <a href="https://guides.rubyonrails.org/">
-    <img src="https://img.shields.io/badge/RAILS-5.2.4-957DAD?style=for-the-badge">
-  </a>
-  &nbsp;
-  <a href="https://github.com/simplecov-ruby/simplecov">
-    <img src="https://img.shields.io/badge/coverage-100%25-brightgreen?style=for-the-badge">
-  </a>
-</p>
 
 Sweater Weather is the final solo project for [Turing School of Software and Design](https://turing.io/) Backend Mod 3 Students. Students had a 5 day deadline to complete all functionality.
 
